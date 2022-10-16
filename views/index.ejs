@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page | Online assignment</title>
+  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-image: url("assets/photo-1517245386807-bb43f82c33c4.jpeg");
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container d-flex justify-content-center align-items-center">
+    <form action="/login" method="post" class="bg-light rounded border p-5">
+      <div class="my-3">
+        <h4>Student login</h4>
+      </div>
+      <% if(error) {%>
+        <div class="alert alert-danger">
+          <h4>Alert</h4>
+          <p>
+            <%= error %>
+          </p>
+        </div>
+        <%}%>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" placeholder="matric number" name="matnumber">
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" placeholder="password" name="password" type="password">
+          </div>
+          <div class="form-group mt-3">
+            <button class="btn btn-primary form-control">Login <i class="fas fa-unlock"></i></button>
+          </div>
+          <div class="my-3">
+            <p class="text-center">Don't have an account?</p>
+          </div>
+          <div class="form-group mt-3">
+            <a href="/register" class="btn btn-primary form-control">Create account <i class="fas fa-user"></i></a>
+          </div>
+    </form>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | Online assignment</title>
+  <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="d-flex p-4 justify-content-between bg-dark">
+    <h3 class="text-white">Student Dashboard</h3>
+    <div class="">
+      <a href="/bell/<%= name._id  %> " class="btn btn-secondary">Notification <i class="fas fa-bell"></i></a>
+      <a href="/logout" class="btn btn-danger">Logout <i class="fas fa-power-off"></i></a>
+    </div>
+  </header>
+  <div class="my-5 container">
+    <div class="alert alert-info">
+      <h3>Welcome <%= name.fname %>
+          <%= name.lname %>
+      </h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita repudiandae aliquid voluptatum sint autem
+        vero beatae, ipsam veniam omnis doloribus, aut illum vitae aperiam, blanditiis praesentium. Animi enim odit
+        delectus!</p>
+    </div>
+  </div>
+  <div class="container my-5 rounded">
+    <main class="row">
+      <div class="col-md-6 border p-4">
+        <form action="/query" method="get">
+          <div class="form-group mt-3">
+            <select name="title" class="form-select">
+              <option value="">-------- Course title ---------------</option>
+              <option value="Web technology">Web technology</option>
+              <option value="Database management">Database management</option>
+              <option value="Management information science">Management information science</option>
+              <option value="Visual basic">Visual basic</option>
+              <option value="Fortan">Fortran</option>
+            </select>
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" class="btn btn-success">Search <i class="fas fa-search"></i></button>
+            <!-- <a href="/dashboard" class="btn btn-warning">Clear <i class="fas fa-clear"></i></a> -->
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <% if(query) {%>
+          <% data.forEach(d=> {%>
+
+            <div class="card mt-3">
+              <div class="card-header">
+                <h4>
+                  <%= d.title %>
+                </h4>
+              </div>
+              <div class="card-footer">
+                <a href="/view/<%= d._id %>" class="btn btn-warning">View question <i class="fas fa-marker"></i></a>
+              </div>
+            </div>
+            <%})%>
+              <%}%>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | Bell</title>
+  <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/font/css/all.min.css">
+</head>
+
+<body>
+  <header class="d-flex p-4 justify-content-between bg-dark">
+    <h3 class="text-white">Student Dashboard</h3>
+    <div class="">
+      <a href="/dashboard" class="btn btn-secondary">Home <i class="fas fa-home"></i></a>
+      <a href="/logout" class="btn btn-danger">Logout <i class="fas fa-power-off"></i></a>
+    </div>
+  </header>
+  <main class="container my-5 w-50 me-auto p-4">
+    <% if(bells.length) {%>
+      <div>
+        <h4>Notification(<%= bells.length %> )</h4>
+      </div>
+      <% bells.forEach(bell=> {%>
+        <div class="border alert alert-info">
+          <h4>
+            <%= bell.course.title %>
+          </h4>
+          <p>
+            Assignment has been submitted
+          </p>
+        </div>
+        <%}) %>
+          <%} else {%>
+            <div>
+              <h4>Notification(<%= bells.length %> )</h4>
+            </div>
+            <div>
+              <p>No Notification(s) found</p>
+            </div>
+            <%}%>
+  </main>
+</body>
+
+</html>

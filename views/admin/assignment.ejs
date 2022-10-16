@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Online assignment</title>
+  <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="d-flex p-4 justify-content-between bg-dark">
+    <h3 class="text-white">Admin Dashboard</h3>
+    <div>
+      <a href="/dashboard/admin" class="btn btn-secondary">Home <i class="fas fa-home"></i></a>
+      <a href="/admin/logout" class="btn btn-danger">Logout <i class="fas fa-power-off"></i></a>
+    </div>
+  </header>
+  <div class="my-5 container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>S/N</th>
+          <th>Full name</th>
+          <th>Level</th>
+          <th>Title</th>
+          <th>Matric number</th>
+          <th>Download</th>
+          <th>Checked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((d,i)=> {%>
+          <tr>
+            <td>
+              <%= i + 1 %>
+            </td>
+            <td>
+              <%= d.user.fname %>
+                <%= d.user.lname %>
+            </td>
+            <td>
+              <%= d.user.level %>
+            </td>
+            <td>
+              <%= d.title %>
+            </td>
+            <td>
+              <%= d.user.matnumber %>
+            </td>
+            <td><a href="/download/<%= d.file %>">Download</a></td>
+            <td><a href="/notif/<%= d._id %>">Confirmed</a></td>
+          </tr>
+          <%}) %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

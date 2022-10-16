@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add assignment | Admin Dashboard</title>
+  <link rel="stylesheet" href="../../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/font/css/all.min.css">
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="d-flex p-4 justify-content-between bg-dark">
+    <h3 class="text-white">Admin Dashboard</h3>
+    <div>
+      <a href="/dashboard/admin" class="btn btn-secondary">Home <i class="fas fa-home"></i></a>
+      <a href="/admin/students" class="btn btn-secondary">All students <i class="fas fa-users"></i></a>
+      <a href="/admin/assignment" class="btn btn-secondary">Assignments <i class="fas fa-book"></i></a>
+      <a href="/admin/logout" class="btn btn-danger">Logout <i class="fas fa-power-off"></i></a>
+    </div>
+  </header>
+  <main class="container d-flex justify-content-center align-items-center" style="height: calc(100vh - 100px);">
+    <form action="/add_assignment" method="post" class="border p-4">
+      <% if(message) {%>
+        <div class="alert alert-success">
+          <p>Assignment sent!</p>
+        </div>
+        <%}%>
+          <% if(error) {%>
+            <div class="alert alert-danger">
+              <p>Credentials are required!</p>
+            </div>
+            <%}%>
+              <div class="form-group mt-3">
+                <label for="course title">Course Title</label>
+                <select name="title" class="form-select">
+                  <option>-------- Course title ---------------</option>
+                  <option value="Web technology">Web technology</option>
+                  <option value="Database management">Database management</option>
+                  <option value="Management information science">Management information science</option>
+                  <option value="Visual basic">Visual basic</option>
+                  <option value="Fortan">Fortran</option>
+                </select>
+              </div>
+              <div class="form-group mt-3">
+                <textarea name="question" placeholder="Question" class="form-control"></textarea>
+              </div>
+              <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success form-control">Send <i
+                    class="fas fa-paper-plane"></i></button>
+              </div>
+    </form>
+  </main>
+</body>
+
+</html>

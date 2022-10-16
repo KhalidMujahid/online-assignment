@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View | Web technology assignment</title>
+  <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/font/css/all.min.css">
+</head>
+
+<body>
+  <header class="d-flex p-4 justify-content-between bg-dark">
+    <h3 class="text-white">Student Dashboard</h3>
+    <div class="">
+      <a href="/dashboard" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Go back</a>
+    </div>
+  </header>
+  <main class="flex-column container d-flex justify-content-center align-items-center my-5">
+    <h3>
+      <%= data.title %>
+    </h3>
+    <form action="/submit" class="border p-4" method="post" enctype="multipart/form-data">
+      <% if(error) {%>
+        <div class="alert alert-danger">
+          <p>
+            <%= error %>
+          </p>
+        </div>
+        <% } %>
+          <% if(message) {%>
+            <div class="alert alert-success">
+              <p>
+                <%= message %>
+              </p>
+            </div>
+            <% } %>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="matnumber" value="<%= name.matnumber  %>" readonly>
+              </div>
+              <div class="form-group mt-3">
+                <label for="q">Question ID</label>
+                <input type="text" class="form-control" name="id" value="<%= data._id  %>" readonly>
+              </div>
+              <div class="form-group mt-3">
+                <label for="question">Question:</label>
+                <p>
+                  <%= data.question %>
+                </p>
+              </div>
+              <div class="form-group mt-3">
+                <input type="file" class="form-control" name="image">
+              </div>
+              <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success form-control">Submit</button>
+              </div>
+    </form>
+  </main>
+</body>
+
+</html>
